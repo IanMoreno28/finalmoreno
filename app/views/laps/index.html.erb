@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Laps</h1>
+
+<table class="table table-striped" style="background-color:#42F1BD;">
+  <thead>
+    <tr>
+      <th>Lap number</th>
+      <th>Position</th>
+      <th>Time</th>
+      <th>Race</th>
+      <th>Pilot</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @laps.each do |lap| %>
+      <tr>
+        <td><%= lap.lap_number %></td>
+        <td><%= lap.position %></td>
+        <td><%= lap.time %></td>
+        <td><%= lap.race_id %></td>
+        <td><%= lap.pilot_id %></td>
+        <td><%= link_to 'Show', lap %></td>
+        <td><%= link_to 'Edit', edit_lap_path(lap) %></td>
+        <td><%= link_to 'Destroy', lap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lap', new_lap_path %>
